@@ -114,7 +114,7 @@ function invalid(val) {
         if (!isValid(val.value)) {
             val.classList.add("red");
             val.classList.remove("green");
-            fb.innerText = "-String cannot be empty.\n-First string cannot be a space. ";
+            fb.innerText = "-String cannot be empty.";
             fb.classList.add("red_back");
 
         }
