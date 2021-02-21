@@ -4,6 +4,8 @@ const create = document.querySelector("#create");
 //a temporary storage to hold the button's previous innerhtml so when we cancel, we return to previous state
 let temp = "";
 
+//create unique ids
+let unique_id = 1;
 //a function to create the div that contains the update and creation questions and buttons
 function create_card() {
 
@@ -13,30 +15,30 @@ function create_card() {
 
     //creating the label for the name and the name input
     const label_name = document.createElement("label")
-    label_name.setAttribute("for", "name");
+    label_name.setAttribute("for", `name${unique_id}`);
     label_name.innerText = "Username: ";
     const name = document.createElement("input");
-    name.setAttribute("id", "name");
+    name.setAttribute("id", `name${unique_id}`);
     name.setAttribute("type", "text");
     name.setAttribute("name", "name");
     name.setAttribute("placeholder", "Please enter students username");
 
     //creating the label fot the id and the id input
     const label_id = document.createElement("label")
-    label_id.setAttribute("for", "id");
+    label_id.setAttribute("for", `id${unique_id}`);
     label_id.innerText = "Id: ";
     const id = document.createElement("input");
-    id.setAttribute("id", "id");
+    id.setAttribute("id", `id${unique_id}`);
     id.setAttribute("type", "string");
     id.setAttribute("name", "id");
     id.setAttribute("placeholder", "Please enter students id");
 
     //creating the label for the grade and the grade input
     const label_grade = document.createElement("label")
-    label_grade.setAttribute("for", "grade");
+    label_grade.setAttribute("for", `grade${unique_id}`);
     label_grade.innerText = "Grade: ";
     const grade = document.createElement("input")
-    grade.setAttribute("id", "grade");
+    grade.setAttribute("id", `grade${unique_id}`);
     grade.setAttribute("type", "number");
     grade.setAttribute("name", "grade");
     grade.setAttribute("min", 0);
@@ -68,6 +70,7 @@ function create_card() {
 
     //now, append the button wrap into the form
     wrap.append(wrap_button);
+    unique_id++;
     return wrap;
 }
 
@@ -158,9 +161,9 @@ function invalid(val) {
 create.addEventListener("click", (event) => {
 
     if (event.target.innerText === "Submit") {
-        const name = document.querySelector("#name");
-        const id = document.querySelector("#id");
-        const grade = document.querySelector("#grade");
+        const name = document.querySelector("input[name='name']");
+        const id = document.querySelector("input[name='id']");
+        const grade = document.querySelector("input[name='grade']");
 
         username = name.value;
         identification = id.value;
@@ -216,13 +219,13 @@ for (let i in edit) {
                     let grade = null;
 
                     for (let j of curr.children) {
-                        if (j.id === "name") {
+                        if (j.name === "name") {
                             name = j;
                         }
-                        else if (j.id === "id") {
+                        else if (j.name === "id") {
                             id = j;
                         }
-                        else if (j.id === "grade") {
+                        else if (j.name === "grade") {
                             grade = j;
                         }
                     }
