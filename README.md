@@ -5,7 +5,7 @@
 <ul>
     <li>Mongoose_schema: This is a folder that contains only one file. The file inside this folder is the file used for creating my mongo schema(database schema). It returns a module that is then used in index.js and seed.js.</li><br>
     <li>Public: This is a folder that contains all of my static files. This folder contains two folders, css and js.</li><br>
-    <li>Seed: This only file in this folder is the seeding file. To use the seed file, simply run "node seed.js" in the seed folder or use a relative path to run from other folders.</li><br>
+    <li>Seed: The only file in this folder is the seeding file. To use the seed file, simply run "node seed.js" in the seed folder or use a relative path to run from other folders.</li><br>
     <li>Views: This folder holds the only dynamic html file(ejs) used in this project. </li><br>
     <li>The main folder: The main folder contains the main index.js used to start up the server. It also contains the package.json file.</li><br>
 </ul>
